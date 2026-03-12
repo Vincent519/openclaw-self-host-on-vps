@@ -173,7 +173,7 @@
     .info-tooltip:hover .info-tooltip-content { display: block; }
     .info-tooltip-content {
       display: none; position: absolute; left: 24px; top: -8px; width: 240px;
-      background: rgba(12, 15, 24, 0.95); backdrop-filter: blur(12px);
+      background: #0c0f18;
       border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
       padding: 10px 12px; font-size: 12px; font-weight: 400;
       color: var(--color-text-secondary); line-height: 1.5; z-index: 50;
@@ -695,7 +695,7 @@
                 <span class="step-num">6</span>
                 <div class="relative">
                   <span class="text-[13px] text-[var(--color-text-secondary)] leading-relaxed">Come back here → <strong
-                      class="text-[var(--color-text-primary)]">Manage Devices</strong> → <strong
+                      class="text-[var(--color-text-primary)]">Pair Devices</strong> → <strong
                       class="text-[var(--color-text-primary)]">Approve Latest</strong></span>
                   <div class="info-tooltip inline-flex ml-1 relative mt-[1px]">i
                     <div class="info-tooltip-content" style="top: -24px; left: 24px; width: 260px;">Each new browser
@@ -719,7 +719,7 @@
               </li>
               <li class="flex items-start gap-3">
                 <span class="step-num">8</span>
-                <p class="text-[13px] text-[var(--color-text-secondary)] leading-relaxed">You should see
+                <p class="text-[13px] text-[var(--color-text-secondary)] leading-relaxed">Refresh the page after pairing — you should see
                   <strong class="text-[var(--color-text-primary)]">Health: OK</strong> in the dashboard
                 </p>
               </li>
@@ -1014,7 +1014,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      Manage Devices
+                      Pair Devices
                     </button>
                     <button @click="openPairingModal()" :disabled="loading" class="btn btn-secondary w-full">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1070,7 +1070,7 @@
       <div
         class="card bg-[var(--color-surface-raised)]/95 backdrop-blur-xl w-full max-w-lg mx-4 max-h-[80vh] overflow-y-auto !border-[var(--color-border)] shadow-2xl">
         <div class="flex items-center justify-between mb-4">
-          <h3 class="text-lg font-semibold">Manage Devices</h3>
+          <h3 class="text-lg font-semibold">Pair Devices</h3>
           <div class="flex items-center gap-2">
             <button @click="loadDevices()" :disabled="devicesLoading"
               class="p-2 rounded-lg hover:bg-[var(--color-surface-overlay)] text-[var(--color-text-secondary)] transition-colors">
