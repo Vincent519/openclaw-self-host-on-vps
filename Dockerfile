@@ -65,3 +65,18 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s \
 
 USER root
 ENTRYPOINT ["./entrypoint.sh"]
+
+# 添加定時腳本
+COPY hsi-future-report.js /data/workspace/hsi-future-report.js
+RUN chmod +x /data/workspace/hsi-future-report.js
+
+# 安裝 cron (Debian-based)
+USER root
+RUN apt-get update && apt-get install -y cron
+
+# 添加 crontab 條目
+RUN echo "0 1 * * 1-5 node /data/workspace/hsi-future-report.js >> /var/log/hsi-report.log 2>&1" > /etc/cron.d/hsi-report
+RUN chmod 0644 /etc/cron.d/hsi-report
+
+# 啟動 cron 並保持容器運行
+CMD ["sh", "-c", "service cron start && tail -F /var/log/cron.log"]
