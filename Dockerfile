@@ -1,5 +1,8 @@
 FROM node:22-bookworm
 
+ARG OPENCLAW_VERSION=2026.3.24
+ENV OPENCLAW_VERSION=${OPENCLAW_VERSION}
+
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
@@ -12,7 +15,7 @@ RUN apt-get update \
     zip \
   && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g openclaw@v2026.3.24
+RUN npm install -g openclaw@v${OPENCLAW_VERSION}
 
 WORKDIR /app
 
